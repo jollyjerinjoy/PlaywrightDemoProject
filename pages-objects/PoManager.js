@@ -2,6 +2,7 @@
 
 //const ShippingDetails = require("./ShippingDetails");
 
+const Cart = require("./Cart");
 const Login = require("./Login");
 const Signup = require("./Signup");
 
@@ -10,7 +11,7 @@ class PoManager{
        this.page=page;
         this.sign=new Signup(page);
         this.login=new Login(page);
-       // this.cart=new Cart(page);
+        this.cart=new Cart(page);
        // this.shipping=new ShippingDetails(page);
        
                 
@@ -27,10 +28,10 @@ class PoManager{
     }
 
     
-    //getCart()
-    //{
-    //    return this.cart;
-    //}
+    getCart()
+    {
+       return this.cart;
+    }
     //getShippingDetails()
     //{
     //    return this.shipping;
