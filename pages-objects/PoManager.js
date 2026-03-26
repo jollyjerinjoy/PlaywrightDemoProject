@@ -1,10 +1,11 @@
 //const Cart = require("./Cart");
 
 //const ShippingDetails = require("./ShippingDetails");
-
-const Cart = require("./Cart");
-const Login = require("./Login");
 const Signup = require("./Signup");
+const Login = require("./Login");
+const Cart = require("./Cart");
+const Categories = require("./Categories");
+
 
 class PoManager{
     constructor(page){
@@ -12,7 +13,7 @@ class PoManager{
         this.sign=new Signup(page);
         this.login=new Login(page);
         this.cart=new Cart(page);
-       // this.shipping=new ShippingDetails(page);
+        this.categories=new Categories(page);
        
                 
     }
@@ -32,11 +33,11 @@ class PoManager{
     {
        return this.cart;
     }
-    //getShippingDetails()
-    //{
-    //    return this.shipping;
+    getCategories()
+    {
+        return this.categories;
 
-   // }
+   }
   
 }
 module.exports=PoManager
