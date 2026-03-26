@@ -2,7 +2,7 @@ const { test } = require("@playwright/test");
 const PoManager = require("../pages-objects/PoManager");
 
 
-test('Login with valid credentials -> Select a product -> Add to Cart -> Click "ok" on the popup',async({page})=>
+test('7.Login with valid credentials -> Select a product -> Add to Cart -> Click "ok" on the popup',async({page})=>
 {
 const pomanager=new PoManager(page); 
 const cartobj=pomanager.getCart(); //PoManager returns

@@ -1,3 +1,5 @@
+
+
 class Cart{
     constructor(page)
     {
@@ -11,7 +13,7 @@ class Cart{
         //this.addtocartbutton=page.locator('.btn btn-success btn-lg');
         
        this.addtocartbutton = page.getByRole('link', { name: 'Add to cart' });
-        
+     
     }
     
 // async selectProduct(productname)  //"Sauce Labs Backpack"

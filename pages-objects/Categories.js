@@ -31,7 +31,11 @@ class Categories{
       this.placeorderpurchasebutton = page.getByRole('button', { name: 'Purchase' });
       
 
-      this.laptoplink = page.getByRole('link', { name: 'Laptops' });
+      this.laptoplink = page.getByRole('link', { name: 'Monitors' });
+      this.productnamemonitor = page.getByRole('link', { name: 'Apple monitor 24' });
+      //this.placeorderlink=page.locator("#cartur");
+      this.placeorderproductmonitor = page.locator('td:has-text("Apple monitor 24")');
+
     }
     
 
@@ -107,9 +111,45 @@ async placeOrder(pname,pcountry,pcity,pcard,pmonth,pyear){
   async CategorySelectmonitor(){
       
         await this.laptoplink.click();
-        
+         await this.productnamemonitor.first().waitFor(); //wait on first product
+        console.log(await this.productnamemonitor.first())
+          await this.productnamemonitor.click();
+          
+          
         
     }
+    async CategorygetAddToCartmonitor(){
+    await this.addtocartbuttonCategory.locator('text=Add to cart').click();
     
+      //  await this.cartalert.click();
+        await this.page.on('dialog',async dialog=>{
+        //wait for function
+        await this.page.waitForTimeout(3000);  //3seconds delay
+        await dialog.accept();  //to click ok button from dialog
+    })
+
+            
+    }
+     async CategoryClickCartmonitor(){
+      
+      await this.selectcart.click();
+      await this.placeorderproductmonitor.first().click();
+      await this.placeorderbutton.click(); 
+      
+          
+        
+    }
+    async placeOrdermonitor(pname,pcountry,pcity,pcard,pmonth,pyear){
+      
+      await (this.placeordername.fill(pname));
+      await (this.placeordercountry.fill(pcountry));
+      await (this.placeordercity.fill(pcity));
+      await (this.placeordercard.fill(pcard));
+      await (this.placeordermonth.fill(pmonth));
+      await (this.placeorderyear.fill(pyear));
+      await this.placeorderpurchasebutton.click();
+          
+        
+    }
 }
 module.exports=Categories
