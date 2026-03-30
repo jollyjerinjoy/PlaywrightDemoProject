@@ -7,11 +7,14 @@ const PoManager = require("../pages-objects/PoManager");
 
 test('8.Login with valid credentials -> Select a product under Phones-> Add to Cart -> Click "ok" on the popup -> Add details -> Purchase',async({page})=>
 {
+    const testData = require('../Utils/placeOrderTestData.json');
 const pomanager=new PoManager(page); 
 const categoriesobj=pomanager.getCategories(); //PoManager returns
 const loginobj2=pomanager.getLogin();
 await loginobj2.clicklogin("12345aabc12345","12345aabc12345");
-await categoriesobj.CategorySelectPhone();
+//await categoriesobj.CategorySelectPhone("Samsung galaxy s6");
+const productName = testData[0].productnamephone;
+await categoriesobj.CategorySelectPhone(productName);
 await categoriesobj.CategorygetAddToCart();
 await categoriesobj.CategoryClickCart();
 const pname="jo";

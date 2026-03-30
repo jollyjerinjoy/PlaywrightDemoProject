@@ -39,7 +39,7 @@ class Categories{
     }
     
 
-    async CategorySelectPhone(){
+    async CategorySelectPhone1(){
         //await this.page.waitForLoadState("networkidle");
          await this.productnamephone.first().waitFor(); //wait on first product
          console.log(await this.productnamephone.first());
@@ -50,6 +50,18 @@ class Categories{
       //  await this.checkout.click();
         
     }
+
+
+async CategorySelectPhone(productName) {
+
+  const product = this.page.getByRole('link', { name: productName });
+
+  await product.first().waitFor();   // wait for product
+  console.log(productName);
+
+  await product.click();             // click dynamic product
+}
+
     async CategorygetAddToCart()
     {
         //expect(await page.locator(".inventory_item_name").isVisible()).toBeTruthy(); //assert , import expect 
