@@ -1,6 +1,7 @@
 
 const {test } = require("@playwright/test");
 const PoManager = require("../pages-objects/PoManager");
+//const { customtest } = require("../Utils/test-base");
 
 
 
@@ -40,11 +41,14 @@ page.on('dialog', async (dialog) => {
 
 test('9. Login with valid credentials -> Select a product under Monitors-> Add to Cart -> Click "ok" on the popup -> Add details -> Purchase',async({page})=>
 {
+    
 const pomanager=new PoManager(page); 
 const categoriesobj=pomanager.getCategories(); //PoManager returns
 const loginobj2=pomanager.getLogin();
 await loginobj2.clicklogin("12345aabc12345","12345aabc12345");
-await categoriesobj.CategorySelectmonitor();  
+
+//await categoriesobj.CategorySelectmonitor1("Apple monitor 24");
+await categoriesobj.CategorySelectmonitor('Apple monitor 24');  
 await categoriesobj.CategorygetAddToCartmonitor();
 await categoriesobj.CategoryClickCartmonitor();
 
@@ -63,5 +67,33 @@ page.on('dialog', async (dialog) => {
     
     await dialog.accept(); // click OK
   });
+
+// customtest('Monitor test using fixture', async ({ page, testDataForOrder }) => {
+
+
+    
+//   const pomanager = new PoManager(page);
+//   const categoriesobj = pomanager.getCategories();
+//   const loginobj = pomanager.getLogin();
+
+//   await loginobj.clicklogin("12345aabc12345","12345aabc12345");
+
+//   const productName = testDataForOrder.productnamemonitor;
+
+//  // await categoriesobj.selectCategory("Monitors");
+//   //await categoriesobj.selectProduct(productName);
+// await categoriesobj.CategorygetAddToCartmonitor();
+// await categoriesobj.CategoryClickCartmonitor();
+
+
+// const pname="jo";
+// const pcountry="IND";
+// const pcity="cochin";
+// const pcard="c23";
+// const pmonth="mar";
+// const pyear="2003"; 
+// await categoriesobj.placeOrdermonitor(pname,pcountry,pcity,pcard,pmonth,pyear);
+
+// });
 
 });

@@ -31,7 +31,7 @@ class Categories{
       this.placeorderpurchasebutton = page.getByRole('button', { name: 'Purchase' });
       
 
-      this.laptoplink = page.getByRole('link', { name: 'Monitors' });
+      this.monitorlink = page.getByRole('link', { name: 'Monitors' });
       this.productnamemonitor = page.getByRole('link', { name: 'Apple monitor 24' });
       //this.placeorderlink=page.locator("#cartur");
       this.placeorderproductmonitor = page.locator('td:has-text("Apple monitor 24")');
@@ -39,17 +39,17 @@ class Categories{
     }
     
 
-    async CategorySelectPhone1(){
-        //await this.page.waitForLoadState("networkidle");
-         await this.productnamephone.first().waitFor(); //wait on first product
-         console.log(await this.productnamephone.first());
-     //   await this.productname.waitFor();
-       // const bool=await this.cartname.isVisible(); //assert , import expect 
-       // console.log(bool);
-        await this.productnamephone.click();
-      //  await this.checkout.click();
+    // async CategorySelectPhone1(){
+    //     //await this.page.waitForLoadState("networkidle");
+    //      await this.productnamephone.first().waitFor(); //wait on first product
+    //      console.log(await this.productnamephone.first());
+    //  //   await this.productname.waitFor();
+    //    // const bool=await this.cartname.isVisible(); //assert , import expect 
+    //    // console.log(bool);
+    //     await this.productnamephone.click();
+    //   //  await this.checkout.click();
         
-    }
+    // }
 
 
 async CategorySelectPhone(productName) {
@@ -120,16 +120,28 @@ async placeOrder(pname,pcountry,pcity,pcard,pmonth,pyear){
 
         
     }
-  async CategorySelectmonitor(){
+  // async CategorySelectmonitor1(){
       
-        await this.laptoplink.click();
-         await this.productnamemonitor.first().waitFor(); //wait on first product
-        console.log(await this.productnamemonitor.first())
-          await this.productnamemonitor.click();
+  //       await this.monitorlink.click();
+  //        await this.productnamemonitor.first().waitFor(); //wait on first product
+  //       console.log(await this.productnamemonitor.first())
+  //         await this.productnamemonitor.click();
           
           
         
-    }
+  //   }
+
+    
+    async CategorySelectmonitor(productName1) {
+
+        await this.monitorlink.click();
+       const product1 = this.page.getByRole('link', { name: productName1 });
+
+ // await product1.first().waitFor();   // wait for product
+  console.log(productName1);
+
+  await product1.click();             // click dynamic product
+}
     async CategorygetAddToCartmonitor(){
     await this.addtocartbuttonCategory.locator('text=Add to cart').click();
     
