@@ -7,6 +7,7 @@ class Signup{
         this.password=page.locator('#sign-password'); 
         this.signup = page.getByRole('button', { name: 'Sign up' });
         this.closebutton = page.getByRole('button', { name: 'Close' });
+      
         
     }
     async goto()
@@ -28,5 +29,8 @@ class Signup{
     await this.closebutton.first().click();
        
     }
+  async
+
+
 }
 module.exports=Signup

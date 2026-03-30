@@ -84,7 +84,7 @@ async placeOrder(pname,pcountry,pcity,pcard,pmonth,pyear){
     //await this.selectcart.click();
     
   //  await this.placeorderproduct.first().waitFor(); //wait on first product
- //       console.log(await this.placeorderproduct.first().textContent());
+ //console.log(await this.placeorderproduct.first().textContent());
    // await this.placeorderproduct.click();
     
     //await this.placeorderproductdelete.click();

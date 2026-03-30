@@ -22,6 +22,12 @@ const pmonth="mar";
 const pyear="2003";
 
 await categoriesobj.placeOrder(pname,pcountry,pcity,pcard,pmonth,pyear);
+page.on('dialog', async (dialog) => {
+    // Assertion
+    expect(dialog.message()).toContain('Thank you for your purchase!');
+    
+    await dialog.accept(); // click OK
+  });
 //await categoriesobj.placeorderproductdelete();
 //expect(await page.locator(".inventory_item_name").isVisible()).toBeTruthy(); //assert , import expect 
 //await cartobj.checkOut();
@@ -47,4 +53,12 @@ const pcard="c23";
 const pmonth="mar";
 const pyear="2003"; 
 await categoriesobj.placeOrdermonitor(pname,pcountry,pcity,pcard,pmonth,pyear);
+//Thank you for your purchase!
+page.on('dialog', async (dialog) => {
+    // Assertion
+    expect(dialog.message()).toContain('Thank you for your purchase!');
+    
+    await dialog.accept(); // click OK
+  });
+
 });

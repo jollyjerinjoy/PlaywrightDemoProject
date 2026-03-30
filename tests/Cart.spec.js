@@ -1,4 +1,4 @@
-const { test } = require("@playwright/test");
+const { test, expect } = require("@playwright/test");
 const PoManager = require("../pages-objects/PoManager");
 
 
@@ -13,4 +13,11 @@ await cartobj.getAddToCart();
 //expect(await page.locator(".inventory_item_name").isVisible()).toBeTruthy(); //assert , import expect 
 //await cartobj.checkOut();
 
+ // Assertion
+  page.on('dialog', async (dialog) => {
+    expect(dialog.message()).toContain('Product added.');
+    
+    await dialog.accept(); // click OK
+  });
+  
 });
