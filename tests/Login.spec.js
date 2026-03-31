@@ -10,8 +10,9 @@ const loginobj=pomanager.getLogin();   //PoManager returns
 //await loginobj.goto();
 await loginobj.clicklogin("12345aabc12345","12345aabc12345");
 //.clicksignup("12345aabc12345","12345aabc12345");
-await expect(page.locator('#nameofuser'))
-    .toHaveText('Welcome 12345aabc12345');
+//await expect(page.locator('#nameofuser')).toHaveText('Welcome 12345aabc12345');
+await expect(page.getByRole('link', { name: 'Welcome 12345aabc12345' })).toBeVisible();  //use special locator for text with space
+
 });
 
 
