@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {"Regression": "npx playwright test --grep @Regression",
-  "test": "npxplaywright test"
+  "test": "npx playwright test"
 
             },
   "keywords": [],
