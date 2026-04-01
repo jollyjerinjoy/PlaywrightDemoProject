@@ -23,6 +23,16 @@ class Signup{
         await this.signup.click();
       
     }
+
+ async clicksignup1(user)
+    {
+        await this.username.fill(user.username);
+        await this.password.fill(user.password);
+        await this.signup.click();
+      
+    }
+
+
    async clickclose()
    {
 

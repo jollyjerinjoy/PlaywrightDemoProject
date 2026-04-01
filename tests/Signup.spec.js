@@ -3,6 +3,8 @@
 
 import {test,expect} from "@playwright/test";
 import PoManager from "../pages-objects/PoManager";
+import { generateUser } from "../Utils/signupdata";
+
 
 
 test('1.Sign Up -> Enter Data -> Click Sign Up',async({page})=>
@@ -14,8 +16,9 @@ test('1.Sign Up -> Enter Data -> Click Sign Up',async({page})=>
 const pomanager=new PoManager(page);  //calling obj from PoManager
 const signobj=pomanager.getSignup();   //PoManager returns
 await signobj.goto();
-await signobj.clicksignup("12345aabc12345","12345aabc12345");
-
+//await signobj.clicksignup("12345aabc12345","12345aabc12345");
+const user=generateUser(); //generateUser is a function which returns random username and password
+await signobj.clicksignup1(user)
     // Assertion
   //  expect(dialog.message()).toContain(["Sign up successful.", "This user already exist."]);
  

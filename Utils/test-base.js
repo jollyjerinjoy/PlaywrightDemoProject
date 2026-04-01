@@ -12,3 +12,4 @@ exports.customtest=base.test.extend({ //customtest, custom fixtures, extend test
 
 //reading data fron json file and using it in test.
 //placeOrderTestData.json file created in Utils folder, read data from json file and use it in test . thi sis used for bulk dat a tests.
+
