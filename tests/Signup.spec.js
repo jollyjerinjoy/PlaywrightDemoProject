@@ -7,7 +7,7 @@ import { generateUser } from "../Utils/signupdata";
 
 
 
-test('1.Sign Up -> Enter Data -> Click Sign Up',async({page})=>
+test(`@Regression 1.Sign Up -> Enter Data -> Click Sign Up`,async({page})=>
 {
  //const signupobj=new Signup(page);
  //await signupobj.goto();
