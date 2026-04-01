@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {"Regression": "npx playwright test --grep @Regression",
-  "test": "npx playwright test"
+  "scripts": { 
+    "test": "playwright test",
+    "Regression": "playwright test --grep @Regression"
 
             },
   "keywords": [],
